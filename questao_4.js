@@ -7,8 +7,21 @@ let data = {
 }
 
 function valor_total(data) {
+    let total = 0;
     for (let estado in data) {
-        console.log(data[estado]);
+        total += data[estado];
     }
+    return total;
 }
-valor_total(data);
+
+function percentual(data) {
+    let total = valor_total(data);
+    let percentage = {};
+    for (let estado in data) {
+        let estado_percentage = (100 * data[estado]) / total;
+        percentage[estado] = estado_percentage;
+    }
+    return percentage;
+}
+
+console.log(percentual(data));
